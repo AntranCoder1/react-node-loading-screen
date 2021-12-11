@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './TopBar.css';
 import {
     Mic,
@@ -7,8 +7,24 @@ import {
     Apps,
     Notifications,
 } from "@material-ui/icons";
+import axios from 'axios';
 
 const TopBar = () => {
+
+    const [user, setUser] = useState({});
+
+    useEffect(() => {
+        const getUser = async () => {
+            try {
+                const res = await axios.get("/api/user/1");
+                setUser(res.data);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        getUser();
+    }, [user]);
+
     return (
         <div className="topbar">
             <div className="topLeft">
@@ -28,7 +44,7 @@ const TopBar = () => {
                 <VideoCall className="topIcon" />
                 <Apps className="topIcon" />
                 <Notifications className="topIcon" />
-                <img className="topImg" src="https://i.pinimg.com/564x/22/9a/bf/229abfaf85c12dbc104c4d42f357d9d1.jpg" alt="" />
+                <img className="topImg" src={user.avatar} alt="" />
             </div>
         </div>
     )

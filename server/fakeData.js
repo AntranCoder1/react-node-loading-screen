@@ -1,8 +1,8 @@
 const user = {
     id: 1,
-    username: "john",
+    username: "Nguyễn Hoàng Ngọc Huyền",
     avatar:
-        "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+        "https://i.pinimg.com/564x/22/9a/bf/229abfaf85c12dbc104c4d42f357d9d1.jpg",
 };
   
 const videos = [
